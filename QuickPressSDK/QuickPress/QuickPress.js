@@ -22,42 +22,14 @@ export default function QuickPress ({ background, children }) {
     // a state which keeps track of how many percent of the timer has passed
     const [timerProgress, setTimerProgress] = React.useState(0);
 
-    // a state for the color array
-    const [colors, setColors] = React.useState(background);
-
     // when the component first is called, check that children and background exists, otherwisr throw an error
     useEffect(() => {
         if (!children) {
             throw new Error("QuickPress: children is not defined");
         }
-        if (!background) {
-            throw new Error("QuickPress: background is not defined");
-        }
 
-        // if background does not exist, set the color array to a white array
-        if (!background) {
-            setColors(Array(children.length).fill("#fff"));
-        }
-        else {
-            setColors(background);
-        }
     }, []);
 
-    // a function which sets the color array to the color array passed in
-    useEffect(() => {
-        // if the number of children is more than the number of colors, fill the color array with the last color
-    if (children.length > colors.length) {
-        const lastColor = '#fff';
-        const newColors = colors;
-        for (let i = colors.length; i < children.length; i++) {
-            newColors.push(lastColor);
-        }
-        setColors(newColors);
-    }
-    else {
-        setColors(background);
-    }
-    }, [background, children]);
 
     
     // a function which return a mainlayout if the page is not transitioning
@@ -65,7 +37,7 @@ export default function QuickPress ({ background, children }) {
     const renderPage = () => {
        if (!transitioning) {
             return (
-                <MainLayout color={colors[currentPage]}>
+                <MainLayout>
                     {children[currentPage]}      
                 </MainLayout>
             );
@@ -76,13 +48,13 @@ export default function QuickPress ({ background, children }) {
                 // so that it will fade in
                 <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}>
                 <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}>
-                    <MainLayout color={colors[currentPage]}>
+                    <MainLayout>
                     {children[currentPage]}
                     </MainLayout>
                 </View>
 
                 <View style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%", opacity: timerProgress / 100}}>
-                    <MainLayout color={colors[nextPage]}>
+                    <MainLayout>
                     {children[nextPage]}
                     </MainLayout>
                 </View>
@@ -129,12 +101,12 @@ export default function QuickPress ({ background, children }) {
 
         const timer = setInterval(() => {
             setTransitioning(true);
-            setNextPage((currentPage + 1) % colors.length);
+            setNextPage((currentPage + 1) % children.length);
             const timer = setInterval(() => {
                 setTimerProgress((timerProgress) => {
                     if (timerProgress >= 100) {
                         clearInterval(timer);
-                        setCurrentPage((currentPage + 1) % colors.length);
+                        setCurrentPage((currentPage + 1) % children.length);
                         setTransitioning(false);
                         setTimerProgress(0);
                         return 0;

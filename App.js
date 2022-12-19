@@ -16,8 +16,8 @@ export default function App() {
     <View style={styles.container}>
 
       {/* render the QuickPress component */}
-      <QuickPress background={colors}>
-         <MainPage>
+      <QuickPress>
+         {/* <MainPage>
           <Image source={require("./assets/favicon.png")} style={styles.image}/>
         </MainPage>
         <MainPage>
@@ -26,10 +26,10 @@ export default function App() {
         <MainPage>
           <Image source={require("./assets/anka.jpg")} style={styles.image}/>
           <Text> Duck </Text>
-        </MainPage>
-        {/* <Text> Hello </Text>
+        </MainPage> */}
+        <Text> Hello </Text>
         <Text> World </Text>
-        <Text> Goodbye </Text> */}
+        <Text> Goodbye </Text>
      
 
       </QuickPress>
