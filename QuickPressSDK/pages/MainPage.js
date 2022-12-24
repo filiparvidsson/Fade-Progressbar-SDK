@@ -10,8 +10,9 @@ import MainLayout from "../layouts/MainLayout";
 export default function MainPage ({children}) {
     return (
         <MainLayout>
-            {children}
-
+            <View style={styles.whiteBox}>
+                {children}
+            </View>
         </MainLayout>
     );
 }
@@ -30,6 +31,24 @@ const styles = StyleSheet.create({
     image: {
         flex:3,
         width: '20%',
+    },
+    whiteBox: {
+        width: "50%",
+        height: "50%",
+        backgroundColor: "#fff",
+        borderColor: "#000",
+        borderWidth: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center",
     },
 });
 

@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 import MainPage from './QuickPressSDK/pages/MainPage';
+import QuizPage from './QuickPressSDK/pages/QuizPage';
+
 import QuickPress from './QuickPressSDK/QuickPress/QuickPress';
 
 export default function App() {
@@ -22,19 +24,20 @@ export default function App() {
         </MainPage>
         <MainPage>
           <Image source={require("./assets/favicon.png")} style={styles.image}/>
+        </MainPage>*/}
+        <MainPage>
+          <Text style={styles.coolText}>Welcome to todays quiz</Text>
         </MainPage>
+        <Text> What kind of animal is this? </Text>
         <MainPage>
           <Image source={require("./assets/anka.jpg")} style={styles.image}/>
-          <Text> Duck </Text>
-        </MainPage> */}
-        <Text> Hello </Text>
-        <Text> World </Text>
-        <Text> Goodbye </Text>
-     
+        </MainPage> 
+        
 
       </QuickPress>
       
     </View>
+    
   );
 }
 

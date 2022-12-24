@@ -4,12 +4,11 @@ import { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import MainLayout from "../layouts/MainLayout";
-import MainPage from "../pages/MainPage";
 
 import ProgressBar from "../components/progressBar/ProgressBar";
 import NavigationButton from "../components/navigationButton/NavigationButton";
 
-export default function QuickPress ({ background, children }) {
+export default function QuickPress ({ children }) {
     // state for which page is currently being displayed
     const [currentPage, setCurrentPage] = React.useState(0);
 
@@ -30,8 +29,6 @@ export default function QuickPress ({ background, children }) {
 
     }, []);
 
-
-    
     // a function which return a mainlayout if the page is not transitioning
     // and a view with the current page and the next page if it is transitioning
     const renderPage = () => {
@@ -112,9 +109,7 @@ export default function QuickPress ({ background, children }) {
                         return 0;
                     }
                     else {
-                        //console.log("timerProgress: " + timerProgress)
-                        return timerProgress + 1;
-                        
+                        return timerProgress + 1;                        
                     }
                 });
             }, 1/10000);
@@ -127,7 +122,6 @@ export default function QuickPress ({ background, children }) {
         // clear the timer when the component is unmounted
         return () => clearInterval(timer);
 
-
     }, [currentPage]);
 
         return (
@@ -136,14 +130,9 @@ export default function QuickPress ({ background, children }) {
             <ProgressBar total={children.length} amount={nextPage + 1} /> 
                 <View style={styles.buttonContainer}>
                     {renderNavigationButtons()}
-                </View>
-            
-            </View>
-            
+                </View>    
+            </View>        
         );
-    
-    
-
 }
 
 const styles = StyleSheet.create({
