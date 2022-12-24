@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import { useEffect } from "react";
 
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 10,
         overflow: "hidden",
-        // place on top of other elements
         position: "absolute",
         top: 20,
 

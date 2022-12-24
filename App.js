@@ -19,12 +19,6 @@ export default function App() {
 
       {/* render the QuickPress component */}
       <QuickPress>
-         {/* <MainPage>
-          <Image source={require("./assets/favicon.png")} style={styles.image}/>
-        </MainPage>
-        <MainPage>
-          <Image source={require("./assets/favicon.png")} style={styles.image}/>
-        </MainPage>*/}
         <MainPage>
           <Text style={styles.coolText}>Welcome to todays quiz</Text>
         </MainPage>
@@ -32,7 +26,25 @@ export default function App() {
         <MainPage>
           <Image source={require("./assets/anka.jpg")} style={styles.image}/>
         </MainPage> 
-        
+        <QuizPage>
+         <Text>Dog</Text>
+          <Text>Cat</Text>
+          <Text>Duck</Text>
+          <Text>Goose</Text>
+        </QuizPage> 
+        <Text>How many seconds lasts each slide?</Text>   
+        <QuizPage>
+         <Text>5 sec</Text>
+          <Text>2 sec</Text>
+          <Text>7 sec</Text>
+          <Text>10 sec</Text>
+        </QuizPage>  
+        <QuizPage>
+         <Text>5 sec</Text>
+          <Text>2 sec</Text>
+          <Text>7 sec</Text>
+          <Text>10 sec</Text>
+        </QuizPage>  
 
       </QuickPress>
       
