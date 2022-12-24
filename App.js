@@ -8,12 +8,6 @@ import QuickPress from './QuickPressSDK/QuickPress/QuickPress';
 
 export default function App() {
 
-  // a color array
-  const colors = ["#ff0000", "#00ff00"];
-
-  // an array of motivational quotes
-  const quotes = ["You can do it!", "You are awesome!", "You are the best!"];
-
   return (
     <View style={styles.container}>
 

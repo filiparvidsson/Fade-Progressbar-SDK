@@ -3,7 +3,6 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 // a function which return a small round button
-
 export default function NavigationButton ({ children, onPress, style, active }) {
 
     return (
@@ -16,8 +15,6 @@ export default function NavigationButton ({ children, onPress, style, active }) 
         </View>
     );
 }
-
-// styles
 
 const styles = StyleSheet.create({
     container: {
